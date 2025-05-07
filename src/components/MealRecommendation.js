@@ -9,9 +9,7 @@ function MealRecommendation() {
   useEffect(() => {
     const fetchRandomMeal = async () => {
       try {
-        const response = await fetch(
-          'https://api.spoonacular.com/recipes/random?apiKey=75c6f88907ad45e7b914a5daa8641421&tags=vegetarian&number=1'
-        );
+        const response = await fetch('/api/meal');
         
         if (!response.ok) {
           throw new Error('Failed to fetch meal');
