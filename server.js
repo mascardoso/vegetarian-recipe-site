@@ -1,8 +1,8 @@
+require('dotenv').config();
+
 const express = require('express');
 const fetch = require('node-fetch');
-require('dotenv').config();
 const path = require('path');
-
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -18,12 +18,12 @@ app.get('/api/meal', async (req, res) => {
   }
 });
 
-// Serve static files from the React app build folder
+// Serve static files
 app.use(express.static(path.join(__dirname, 'build')));
 
-// Catch-all handler: for any request that doesn't match /api, send back React's index.html
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+// Catch-all: send React's index.html for any other route
+app.get('/*any', async (_, res) => {
+    res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
 });
 
 app.listen(PORT, () => {
