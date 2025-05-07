@@ -1,6 +1,5 @@
 {
   "name": "vegetarian-recipe-site",
-  "homepage": "https://mascardoso.github.io/vegetarian-recipe-site",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
